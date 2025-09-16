@@ -371,3 +371,18 @@ Exhibit B - "Incompatible With Secondary Licenses" Notice
 
   This Source Code Form is "Incompatible With Secondary Licenses", as
   defined by the Mozilla Public License, v. 2.0.
+
+------------------------------------------------------------
+Additional Notice – Secure Workspace Governance
+------------------------------------------------------------
+
+This project is governed as a single, authoritative implementation
+maintained by the Secure Workspace consortium (e-Government, CAs, and
+independent security stakeholders).
+
+- Forking and distribution of modified versions is NOT permitted.
+- All contributions must go through the official Pull Request process.
+- Official binaries are built only from the `release` branch and signed
+  with multi-party (M-of-N) approval.
+- For governance details, see GOVERNANCE.md in this repository.
+
