@@ -1,0 +1,85 @@
+openapi: 3.0.3
+info:
+  title: Secure Workspace API
+  version: 0.1.0
+  description: >
+    Client-side key generation + attestation + session-bound signing.
+servers:
+  - url: https://api.example.org
+paths:
+  /challenge:
+    post:
+      summary: Create a session-bound challenge
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: string
+                purpose:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sessionToken:
+                    type: string
+                  challenge:
+                    type: string
+                  ttlSeconds:
+                    type: integer
+  /register:
+    post:
+      summary: Submit public key + attestation for provisioning
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sessionToken: { type: string }
+                publicKeyJwk: { type: object }
+                attestation: { type: object }
+                signedChallenge: { type: string }
+      responses:
+        '201':
+          description: Registered
+  /request-cert:
+    post:
+      summary: Request short-lived certificate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sessionToken: { type: string }
+                publicKeyThumbprint: { type: string }
+      responses:
+        '200':
+          description: Cert issued
+  /sign:
+    post:
+      summary: Produce a session-bound signature (Model 2 flow)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sessionToken: { type: string }
+                payloadHash: { type: string }
+                userVerificationRequired: { type: boolean }
+      responses:
+        '200':
+          description: Signature OK
