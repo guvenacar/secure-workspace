@@ -20,4 +20,6 @@
 3. Güvenlik kurallarını `SECURITY.md` dosyasında inceleyin
 
 ## Lisans
-Apache-2.0 (öneri; değiştirilebilir)
+---
+**License:** [MPL-2.0](LICENSE) — See [GOVERNANCE.md](GOVERNANCE.md) for fork and contribution policy.
+
