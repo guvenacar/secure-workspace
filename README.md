@@ -1,25 +1,28 @@
-# Secure Workspace (İzole Ortam) — Açık Kaynak Referans Uygulaması
+# Secure Workspace – Open Source Reference Implementation
 
-**Amaç:** E-Devlet + CA + bağımsız paydaşlar tarafından ortak yönetilen, açık kaynak bir **Secure Workspace / e-İmza Cüzdanı** uygulaması.
+**Goal:** Provide a transparent, verifiable, and secure client application for
+decentralized e-signature workflows. Maintained under the governance of
+the Secure Workspace consortium (e-Government, CAs, independent reviewers).
 
-- Client-side key generation (private key asla ağdan çıkmaz)
-- Attestation zorunlu (platform desteklediği ölçüde)
-- Her işlem için **ephemeral** sertifika / nPub ve hızlı revocation
-- Kullanıcı onayı: PIN + biyometri (platform desteği ile)
-- Reproducible builds + signed releases
+## Key Features
+- **Client-side key generation:** Private keys are generated on the user's device and never leave it.
+- **Isolated workspace:** Signing operations run inside a secure environment (TEE/secure enclave).
+- **Attestation:** Device attestation and session token binding for trusted key provisioning.
+- **Ephemeral certificates:** Per-transaction certificates are issued and instantly revoked.
+- **Reproducible builds:** Signed releases with verifiable checksums for full transparency.
 
-## Bileşenler
-- `api/` — OpenAPI şeması ve protokol tanımları
-- `examples/` — WebAuthn tabanlı mini PoC (istemci + sunucu iskeleti)
-- `docs/` — Mimari, tehdit modeli, akış diyagramları
-- `scripts/` — Geliştirici araçları (lint, format, build vs.)
+## Components
+- `api/` – OpenAPI schema and protocol definitions
+- `examples/` – Minimal WebAuthn PoC (client + server)
+- `docs/` – Architecture, diagrams, and threat models
+- `scripts/` – Developer tools (lint, format, build, CI scripts)
 
-## Hızlı Başlangıç
-1. `examples/web-poc/` klasörünü okuyun (client & server minimal örnek)
-2. `api/openapi.yaml` üzerinde API uçlarını gözden geçirin
-3. Güvenlik kurallarını `SECURITY.md` dosyasında inceleyin
+## Quick Start
+1. Review `examples/web-poc/` to see WebAuthn key generation in action.
+2. Check `api/openapi.yaml` for API endpoints and payload format.
+3. See `SECURITY.md` for the security and vulnerability disclosure policy.
 
-## Lisans
----
-**License:** [MPL-2.0](LICENSE) — See [GOVERNANCE.md](GOVERNANCE.md) for fork and contribution policy.
+## License
+Licensed under [MPL-2.0](LICENSE).  
+**Note:** See [GOVERNANCE.md](GOVERNANCE.md) for fork policy and contribution process.
 

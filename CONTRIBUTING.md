@@ -1,6 +1,12 @@
-# Katkı Rehberi
+# Contribution Guidelines
 
-- Tüm PR'lar için testler zorunludur.
-- Kritik kataloglar: `crypto/`, `attestation/`, `keystore/` — CODEOWNERS onayı.
-- `api/openapi.yaml` değişiklikleri için versiyon artırımı ve CHANGELOG maddesi ekleyin.
-- PR açıklamasına tehdit modeli etkisini (varsa) kısaca yazın.
+We welcome contributions! Please follow these rules:
+
+- All pull requests **must include tests**.
+- Changes to `crypto/`, `attestation/`, `keystore/` require **code owner approval**.
+- API changes (`api/openapi.yaml`) must include:
+  - Version bump
+  - Changelog entry
+  - Threat model impact statement (if applicable)
+- PR description should clearly state the purpose and any security implications.
+
